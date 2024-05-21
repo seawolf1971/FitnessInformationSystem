@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - Fitness Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Admin Panel - Fitness Management System</h1>
+      </div>
+    </header>
+
+    <div class="container">
+     <div>
+        <span style="color: rgb(251, 1, 1);"><a href="/home">Homepage</a></span>
+     </div>
+      <section id="remove-user" class="py-4">
+        <h2>Remove User</h2>
+        <form action="/remove-user" method="post">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" name = "username" required />
+          </div>
+          <button type="submit" class="btn btn-danger">Remove User</button>
+        </form>
+      </section>
+
+      <section id="users" name="users" class="py-4">
+        <h2>Users</h2>
+        {{#users}}
+            <li>{{username}} /{{role}} / {{classes}}      
+            </li> 
+        {{/users}}
+       
+      </section>
+
+      <section id="add-user" class="py-4">
+        <h2>Add User</h2>
+        <form action="/add-user" method="post">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" name = "username" required />
+          </div>
+          <div class="form-group">
+            <label for="password">password:</label>
+            <input type="text" class="form-control" id="password" name = "password" required />
+          </div>
+          <button type="submit" class="btn btn-danger">Add User</button>
+        </form>
+      </section>
+
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>© 2024 Fitness Management System</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

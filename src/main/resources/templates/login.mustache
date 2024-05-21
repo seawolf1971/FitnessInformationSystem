@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Fitness Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Fitness Management System</h1>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="login" class="py-4">
+        <div class="container">
+          {{#param.error}}
+          <div class="error-message">
+              <p>Invalid Username or Password</p>
+          </div>
+          {{/param.error}}
+
+          {{#param.logout}}
+          <div class="logout-message">
+              <p>Logout Successful!</p>
+          </div>
+          {{/param.logout}}
+          <h2>Login</h2>
+          <form action="/login" method="post" role="form">
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" id="username" name= "username"  placeholder="Enter your Username" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                name="password" 
+                placeholder="Enter your Password" 
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <a href="/register" class="btn btn-secondary ml-auto"
+              >Register Here!</a
+            >
+          </form>
+          {{#error}}
+        <div class="error-message">
+           <p>{{error}}</p>
+        </div>
+        {{/error}}
+        </div>
+        
+      </section>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>© 2024 Fitness Management System</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

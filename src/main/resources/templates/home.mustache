@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Fitness Management System</h1>
+      </div>
+    </header>
+    <div class="dashboard_user">
+      <h2 class="dashboard_user_name">{{userdetail.username}}</h2>
+      {{#isAuthenticated}}
+      <span style="color: rgb(251, 1, 1);"><a href="/logout">Logout</a></span>
+    {{/isAuthenticated}}
+    {{#isAdmin}}
+    <span style="color: rgb(251, 1, 1);"><a href="/admin">ADMIN PANEL</a></span>
+  {{/isAdmin}}
+  </div>
+  
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky">
+      <div class="container">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#manage-profile">Manage Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#attendance">Attendance Tracking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#class-schedule">Class Schedule</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#payment">Payment Processing</a>
+          </li>
+         
+        </ul>
+      
+      </div>
+    </nav>
+
+    <div class="container">
+      <section id="about-us" class="py-4">
+        <h2>About Us</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem minima
+          tenetur quos aut asperiores facere repudiandae, reiciendis culpa
+          dolor, corrupti sed? Natus ex ad dignissimos, eos voluptate
+          recusandae, atque beatae ipsa libero sed ab, quam quos error ipsam
+          deserunt assumenda similique cum! In magnam nam sint fugiat aperiam
+          quod architecto, non, exercitationem illum reprehenderit illo ratione
+          repellendus labore voluptas adipisci ipsa amet fuga aliquid quae aut!
+          Incidunt dolor quis eius doloremque laboriosam neque assumenda
+          reprehenderit. Maiores omnis autem magni laborum dolorem natus sed,
+          nulla rem quos? Doloribus tenetur corrupti veniam, vel provident,
+          quibusdam atque velit neque porro odit ab excepturi.
+        </p>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur
+          quasi obcaecati asperiores recusandae nulla repellendus numquam,
+          delectus eveniet! Repellat tempore veniam sunt nostrum assumenda
+          aliquam minus nisi, fugiat eum saepe perspiciatis, ullam perferendis
+          nam labore porro maiores rerum fugit. Aliquam, nobis! Rerum mollitia
+          ut ducimus. Dignissimos temporibus quibusdam corporis veniam rerum
+          iure, magni eligendi corrupti qui esse ratione exercitationem unde
+          repellat omnis? Perferendis veritatis repellendus voluptates eveniet
+          quo expedita, officia optio earum, labore illum omnis.
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta eius
+          libero, blanditiis et eligendi eaque, nihil magni accusantium
+          veritatis similique facilis, perferendis ducimus eum ipsa dolorum
+          dolore magnam voluptas velit nam! Aspernatur, accusantium dolore
+          temporibus expedita ipsa reprehenderit cum blanditiis, deleniti
+          distinctio at explicabo! Mollitia similique qui voluptatibus corporis
+          repellendus?
+        </p>
+        <!-- Add more Lorem Ipsum content if needed -->
+      </section>
+
+      <section id="manage-profile" class="py-4">
+        <div class="container">
+          <h2>Manage Profile</h2>
+
+          <!-- Change Password Form -->
+          <h3>Change Password</h3>
+          <form id="change-password"  name = "change-password" action = "/change-password" method="post">
+            <div class="form-group">
+              <label for="oldPassword">Enter Old Password:</label>
+              <input
+                type="password"
+                class="form-control"
+                id="oldPassword"
+                name="oldPassword"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="newPassword">Enter New Password:</label>
+              <input
+                type="password"
+                class="form-control"
+                id="newPassword"
+                name="newPassword"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Change Password
+            </button>
+            {{#error}}
+            <div class="error-message">
+               <p>{{error}}</p>
+            </div>
+            {{/error}}
+          </form>
+
+          <h3>Change Payment Method</h3>
+          <form id="changePaymentMethodForm" action="/change-payment" method="post" role="form">
+            <div class="form-group">
+              <label for="paymentMethod">Select Payment Method:</label>
+              <select
+                class="form-control"
+                id="paymentMethod"
+                name="paymentMethod"
+                required
+              >
+                <option value="">Select Payment Method</option>
+                <option value="cash" name="cash" id="cash">Cash</option>
+                <option value="creditCard" name="Credit Card" id="Credit Card" >Credit Card</option>
+                <option value="crypto" name="Cyrpto" id="Crypto" >Crypto</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Change Payment Method
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section id="attendance" class="py-4">
+        <h2>Attendance Tracking</h2>
+        <!-- Attendance tracking section goes here -->
+      </section>
+
+      <section id="class-schedule"  class="py-4">
+        <div class="container">
+          <h2>Class Schedule</h2>
+
+          <!-- Gym Class -->
+          <div class="class">
+            <h3>Gym Class</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <form action="/sign-up" method="post">
+              <input type="hidden" name="class" value="Gym Class">
+              <button type="submit">Sign Up</button>
+            </form>
+            <form action="/sign-out" method="post">
+              <input type="hidden" name="class" value="Gym Class">
+              <button type="submit">Sign out</button>
+            </form>
+          </div>
+
+          <!-- Yoga Class -->
+          <div class="class">
+            <h3>Yoga Class</h3>
+            <p>Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            <form action="/sign-up" method="post">
+              <input type="hidden" name="class" value="Yoga Class">
+              <button type="submit">Sign Up</button>
+            </form>
+            <form action="/sign-out" method="post">
+              <input type="hidden" name="class" value="Yoga Class">
+              <button type="submit">Sign out</button>
+            </form>
+            
+          </div>
+
+          <!-- Pilates Class -->
+          <div class="class">
+            <h3>Pilates Class</h3>
+            <p>Cras mattis consectetur purus sit amet fermentum.</p>
+            <form action="/sign-up" method="post">
+              <input type="hidden" name="class" value="Pilates Class">
+              <button type="submit">Sign Up</button>
+            </form>
+            <form action="/sign-out" method="post">
+              <input type="hidden" name="class" value="Pilates Class">
+              <button type="submit">Sign out</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="payment" class="py-4">
+        <div class="container">
+          <h2>Payment Processing</h2>
+
+          <!-- Credit Card Information -->
+          <div class="payment-method">
+            <h3>Credit Card Information</h3>
+            <form id="credit-card-form">
+              <label for="owner-name">Owner Name:</label>
+              <input type="text" id="owner-name" required />
+
+              <label for="card-number">Card Number:</label>
+              <input type="text" id="card-number" required />
+
+              <label for="expiration-date">Expiration Date:</label>
+              <input type="text" id="expiration-date" required />
+
+              <button type="button" onclick="makePayment('Credit Card')">
+                Confirm
+              </button>
+            </form>
+          </div>
+
+          <!-- Crypto Payment -->
+          <div class="payment-method">
+            <h3>Crypto Wallet Number</h3>
+            <form id="crypto-form">
+              <label for="wallet-number">Wallet Number:</label>
+              <input type="text" id="wallet-number" required />
+
+              <button type="button" onclick="makePayment('Crypto')">
+                Confirm
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>© 2024 Fitness Management System</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      // Function to handle sign-up for a class
+      function signUp(className) {
+        alert("Joined " + className + " successfully!");
+      }
+    </script>
+    <script>
+      function makePayment(paymentMethod) {
+        alert("Payment made successfully using " + paymentMethod);
+      }
+    </script>
+  </body>
+</html>
